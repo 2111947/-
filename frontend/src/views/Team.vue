@@ -4,10 +4,10 @@
       <el-col :span="6" v-for="member in teamMembers" :key="member.id">
         <div class="team-card">
           <div class="member-avatar">
-            <img :src="member.avatar" :alt="member.name">
+            <img :src="member.avatarUrl" :alt="member.name">
           </div>
           <h3>{{ member.name }}</h3>
-          <p class="position">{{ member.position }}</p>
+          <p class="position">{{ member.info }}</p>
           <p class="description">{{ member.description }}</p>
           <div class="skills">
             <el-tag
@@ -37,7 +37,7 @@ export default {
   methods: {
     getTeamMembers() {
       // 调用mock接口获取团队成员信息
-      this.$axios.get('/api/team/members').then(res => {
+      this.$axios.get('/api/getpersonalinfo').then(res => {
         if (res.data.code === 0) {
           this.teamMembers = res.data.data
         }

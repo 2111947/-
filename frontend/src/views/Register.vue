@@ -59,7 +59,7 @@ export default {
     handleRegister() {
       this.$refs.registerForm.validate(valid => {
         if (valid) {
-          this.$axios.post('/api/register', {
+          this.$axios.post('/api/signup', {
             username: this.registerForm.username,
             password: this.registerForm.password
           }).then(res => {
